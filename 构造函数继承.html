@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    //4种继承的方式
+    //1.借用构造函数
+    //优点：可以在子类型构造函数中向超类型构造函数添加参数
+    //缺点:1.和构造函数模式一样的问题，所有的方法都在构造函数中定义，因此就无法做到函数的复用。
+    //而且超类型的原型中定义的方法，对于子类型而言也是不可见的。
+    function SuperType(){
+      this.colors=['red','blue','green'];
+    }
+    function SubType(){
+      SuperType.call(this);
+    }
+    var instancel = new SuperType();
+    instancel.colors.push('yellow');
+    console.log(instancel.colors);
+    var subInstancel = new SubType();
+    console.log(subInstancel.colors);
+    /* 
+      组合继承
+      组合继承指的是将原型链和借用构造函数的技术组合到一块，从而发挥二者之长的一种继承模式。
+      这种方法的主要思路是使用原型链实现对原型属性和方法的继承，而通过借用构造函数来实现对实例属性的继承。
+      这样既通过在原型上定义方法实现了函数复用，又能够保证每个实例都有它自己的属性。
+     */
+     
+  </script>
+</body>
+</html>
