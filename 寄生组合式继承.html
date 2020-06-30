@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      寄生式组合继承
+
+     */
+    function Person(name){
+      this.name = name;
+    }
+    Person.prototype.sayName = function(){
+      console.log(this.name);
+    }
+    function Student(name,grade){
+      Person.call(this,name);
+      this.grade = grade;
+    }
+    Student.prototype = Object.create(Person.prototype);
+    //Student.prototype.constructor = Student;
+    Student.prototype.sayGrade = function(){
+      console.log(this.grade);
+    }
+    var student1 = new Student('peter','六年级');
+    student1.sayName();
+    student1.sayGrade();
+  </script>
+</body>
+</html>

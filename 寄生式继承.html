@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+   /* 
+      寄生式继承
+      优点： 在主要考虑对象而不是自定义类型和构造函数的情况下，实现简单的继承。
+      缺点：使用该继承方式，在为对象添加函数的时候，没有办法做到函数的复用。
+    */
+    function createAnother(original){
+      var clone = Object(original);
+      clone.sayHi = function(){
+        console.log('Hi');
+      }
+      return clone;
+    }
+    var person = {
+      name:'john'
+    }
+    var clone2 = new createAnother(person);
+    clone2.sayHi();
+  </script>
+</body>
+</html>
