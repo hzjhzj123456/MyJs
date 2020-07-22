@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      工厂模式
+      工厂模式定义一个用于创建对象的接口，这个接口由子类决定实例化哪一个类。
+      该模式使一个类的实例化延迟到了子类。而子类可以重写接口方法以便创建的时候指定自己的对象类型。
+     */
+     class Product{
+       constructor(name){
+         this.name = name;
+       }
+       init(){
+         console.log('init');
+       }
+       fun(){
+         console.log('fun');
+       }
+     }
+     class Factory{
+       create(name){
+         return new Product(name);
+       }
+     }
+     var factory = new Factory();
+     var p1 = factory.create('花生');
+     p1.init();
+     p1.fun();
+  </script>
+</body>
+</html>

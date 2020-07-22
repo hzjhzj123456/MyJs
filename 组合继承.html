@@ -38,6 +38,12 @@
     console.log(instance2.colors);
     instance2.sayname();
     instance2.sayage();
+    var config = {
+      alert:setInterval(()=>{
+        console.log('1');
+      },1000)
+    }
+    config = null;
   </script>
 </body>
 </html>

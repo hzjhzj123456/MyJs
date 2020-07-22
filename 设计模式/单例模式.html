@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /*  
+      单例模式
+      单例模式中Class的实例个数最多为1。当需要一个对象去贯穿整个系统执行某些任务时，单例模式就派上了用场。
+      而除此之外的场景尽量避免单例模式的使用，因为单例模式会引入全局状态，而一个健康的系统应该避免引入过多的全局状态。
+    */
+    const FooServiceSingleton =(function(){
+      function FooService(){}
+      let fooService;
+      return{
+        getInstance:function(){
+          if(!fooService){
+            fooService = new FooService();
+          }
+          return fooService
+        }
+      }
+    })()
+    const fooService1 = FooServiceSingleton.getInstance();
+    const fooService2 = FooServiceSingleton.getInstance();
+    console.log(fooService1 === fooService2);
+  </script>
+</body>
+</html>

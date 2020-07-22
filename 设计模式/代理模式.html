@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+  <script>
+    /* 
+      代理模式：
+      是为一个对象提供一个代用品或占位符，以便控制对它的访问
+     */
+     let Flower = function(){};
+     let xiaoming = {
+       sendFlower:function(target){
+         let flower = new Flower();
+         target.receviewFlower(flower)
+       }
+     }
+     let B = {
+       receviewFlower:function(flower){
+        A.listentGodMood(function(){
+          A.receviewFlower(flower);
+        })
+       }
+     }
+     let A = {
+       receviewFlower:function(flower){
+        console.log('收到花'+flower);
+       },
+       listentGodMood:function(fn){
+        setTimeout(function(){
+          fn();
+        },1000);
+       }
+     }
+     xiaoming.sendFlower(B);
+  </script>
+</body>
+</html>
