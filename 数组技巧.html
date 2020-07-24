@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+
+<body>
+  <div>数组技巧</div>
+  <script>
+    //数组交集
+    //普通数组
+    let arr1 = [1, 2, 3, 4, 5];
+    let arr2 = [4, 5, 6, 7, 8];
+    let resultarr1 = arr1.filter((item) => {
+      return arr2.indexOf(item) > -1;
+    })
+    console.log("arr3", resultarr1);
+    //对象数组
+    let arrObj1 = [{ id: '1', name: "name1" }, { id: '2', name: "name2" }, { id: '3', name: "name3" }, { id: '4', name: "name4" }]
+    let arrobj2 = [{ id: '1', name: "name1" }, { id: '2', name: "name2" }, { id: '3', name: "name3" }, { id: '4', name: "name4" }, { id: '5', name: "name5" }]
+    let resultarrobj1 = arrobj2.filter((v)=>{
+      return arrObj1.some((c)=>{
+        console.log(JSON.stringify(c) === JSON.stringify(v));
+        return JSON.stringify(c) === JSON.stringify(v)
+      })
+    })
+    console.log("arrobj3", resultarrobj1);
+    //数组并集
+    //普通数组
+    let arr3 = [1,2,3,4,5,8,9];
+    let arr4 =[5,6,7,8,9];
+    const resultarr2 =  arr1.concat(arr2.filter((item)=>{
+      return !arr1.includes(item)
+    }))
+    console.log("11111",resultarr2);
+    //数组补集
+    
+  </script>
+</body>
+
+</html>
